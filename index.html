@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff5f8">
+<title>Happy Artist | Aniska Sharma</title>
+
+<style>
+:root{
+--pink:#f4dce7;
+--rose:#c58da5;
+--dark:#29242a;
+--cream:#fffaf7;
+--muted:#817680;
+--line:#eadde3;
+--green:#a8b6a0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--cream);
+color:var(--dark);
+line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+.container{width:min(1160px,91%);margin:auto}
+
+/* HEADER */
+header{
+position:sticky;top:0;z-index:50;
+background:#fffaf7ed;
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--line);
+}
+.navbar{
+height:78px;display:flex;
+align-items:center;justify-content:space-between;
+}
+.brand{
+display:flex;align-items:center;gap:11px;
+font-family:Georgia,serif;font-size:21px;font-weight:bold;
+}
+.brand-logo{
+width:49px;height:49px;border-radius:50%;
+border:2px solid #d9b7c5;background:#fceef4;
+overflow:hidden;flex-shrink:0;
+}
+.brand-logo svg{width:100%;height:100%}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:13px}
+.nav-links a:hover{color:var(--rose)}
+.nav-button{
+background:var(--dark);color:white;
+padding:11px 20px;border-radius:30px;
+}
+
+/* HERO */
+.hero{
+background:
+radial-gradient(circle at 85% 20%,#f1dce7,transparent 30%),
+linear-gradient(125deg,#fffaf7,#f9edf2);
+padding:75px 0 80px;
+overflow:hidden;
+}
+.hero-grid{
+display:grid;grid-template-columns:1.05fr .95fr;
+align-items:center;gap:45px;
+}
+.eyebrow{
+color:#b37b94;font-size:11px;
+letter-spacing:3px;text-transform:uppercase;
+font-weight:bold;
+}
+.hero h1{
+font:clamp(48px,7vw,83px)/1.02 Georgia,serif;
+font-weight:normal;margin:19px 0;
+letter-spacing:-2px;
+}
+.hero h1 em{color:#c28ba3}
+.hero p{max-width:510px;color:#756b72;font-size:15px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+display:inline-block;padding:13px 23px;
+border:1px solid var(--dark);border-radius:30px;
+font-size:13px;transition:.25s;
+}
+.btn-dark{background:var(--dark);color:white}
+.btn-light{background:transparent}
+.btn:hover{transform:translateY(-3px)}
+.hero-caption{margin-top:23px;font:italic 15px Georgia;color:#9a7e8c}
+
+.hero-art{
+min-height:430px;display:grid;place-items:center;
+position:relative;
+}
+.art-circle{
+width:min(370px,80vw);aspect-ratio:1;
+background:#fcecf3;border-radius:50%;
+border:9px solid white;
+box-shadow:0 20px 65px #75505e24;
+display:grid;place-items:center;
+position:relative;z-index:2;
+}
+.art-circle svg{width:100%;height:100%}
+.orbit{
+position:absolute;width:440px;height:440px;
+border:1px dashed #d4a6b9;border-radius:50%;
+}
+.decor{position:absolute;color:#bd8ca1;font-size:27px}
+.d1{top:12%;left:9%}.d2{bottom:13%;right:10%}
+.d3{top:20%;right:4%;font-size:17px}
+
+/* STATS */
+.stats{background:white;border-block:1px solid var(--line)}
+.stats-grid{
+display:grid;grid-template-columns:repeat(3,1fr);
+text-align:center;padding:25px 0;
+}
+.stats strong{
+display:block;font:32px Georgia;color:var(--rose)
+}
+.stats span{
+font-size:10px;letter-spacing:2px;
+text-transform:uppercase;color:var(--muted)
+}
+
+/* COMMON SECTIONS */
+section{padding:85px 0}
+.section-title{text-align:center;max-width:650px;margin:0 auto 45px}
+.section-title .eyebrow{margin-bottom:12px}
+.section-title h2{
+font:clamp(34px,5vw,48px) Georgia;
+font-weight:normal;margin-bottom:12px;
+}
+.section-title p{color:var(--muted);font-size:14px}
+.heading-line{
+width:48px;height:2px;background:#c58da5;margin:17px auto;
+}
+
+/* ABOUT */
+.about-grid{
+display:grid;grid-template-columns:.85fr 1.15fr;
+gap:65px;align-items:center;
+}
+.about-art{
+background:#f8eaf0;min-height:360px;
+display:grid;place-items:center;position:relative;
+padding:30px;
+}
+.about-art:before{
+content:"";position:absolute;inset:14px;
+border:1px solid #d8b5c4;
+}
+.about-art svg{width:190px;position:relative}
+.about-art-note{
+position:absolute;bottom:28px;
+font:italic 18px Georgia;color:#9d7183;
+}
+.about-copy h2{
+font:42px Georgia;font-weight:normal;
+margin-bottom:18px;
+}
+.about-copy p{font-size:14px;color:var(--muted);margin-bottom:15px}
+.signature{
+font:italic 25px Georgia;color:#bb839a;margin-top:25px
+}
+
+/* CREATIVE SKILLS */
+.skills{background:#fbf3f6}
+.skill-grid{
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.skill-card{
+background:white;padding:30px 25px;
+border:1px solid var(--line);
+transition:.25s;min-height:220px;
+}
+.skill-card:hover{transform:translateY(-5px);box-shadow:0 15px 30px #60404c10}
+.skill-icon{font-size:27px;color:#bd8ca1}
+.skill-card h3{font:24px Georgia;font-weight:normal;margin:17px 0 9px}
+.skill-card p{font-size:13px;color:var(--muted)}
+
+/* PORTFOLIO */
+.portfolio{background:#fffaf7}
+.portfolio-grid{
+display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.project{background:white;border:1px solid var(--line);overflow:hidden}
+.demo{
+height:245px;display:grid;place-items:center;
+position:relative;overflow:hidden;
+}
+.demo:after{
+content:"";position:absolute;inset:13px;
+border:1px solid #ffffffa8;pointer-events:none;
+}
+.demo-one{background:linear-gradient(140deg,#f6e3eb,#fff7ef)}
+.demo-two{background:linear-gradient(140deg,#e6e9df,#f8e7eb)}
+.demo-three{background:linear-gradient(140deg,#eee4f2,#f8e9e6)}
+.demo-four{background:linear-gradient(140deg,#f5e6d9,#fff7ed)}
+.demo-five{background:linear-gradient(140deg,#e7edf1,#f5e4e9)}
+.demo-six{background:linear-gradient(140deg,#f4e1e8,#e9e6dc)}
+
+.art-paper{
+width:155px;height:170px;background:#fffaf4;
+box-shadow:0 12px 28px #59404b22;
+display:grid;place-items:center;
+transform:rotate(-4deg);
+position:relative;
+}
+.art-paper span{font:italic 26px Georgia;color:#b17c91;text-align:center}
+.art-paper small{display:block;font:9px Arial;letter-spacing:2px}
+.flower{
+font-size:78px;filter:grayscale(.15);
+}
+.portrait-demo{
+width:125px;height:160px;
+border-radius:50% 50% 43% 43%;
+background:#e7c5cc;position:relative;
+border:2px solid #7c626a;
+}
+.portrait-demo:before{
+content:"";position:absolute;
+width:75px;height:95px;border-radius:48%;
+background:#f6e1d9;border:2px solid #66545b;
+top:20px;left:23px;
+}
+.portrait-demo:after{
+content:"";position:absolute;
+width:105px;height:65px;border-radius:50% 50% 0 0;
+background:#594751;top:4px;left:8px;
+}
+.canvas-demo{
+width:160px;height:150px;
+border-radius:4px;background:#f9f0e7;
+display:grid;place-items:center;
+box-shadow:0 10px 25px #49333b1c;
+}
+.canvas-demo span{font:italic 27px Georgia;color:#b47e94}
+.project-info{padding:19px 20px}
+.project-info h3{font:22px Georgia;font-weight:normal}
+.project-info p{font-size:12px;color:var(--muted);margin-top:5px}
+.demo-label{
+display:inline-block;margin-top:12px;
+font-size:9px;letter-spacing:2px;color:#b27d93;
+text-transform:uppercase;
+}
+
+/* PROCESS */
+.process{background:#fbf3f6}
+.process-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.process-card{border-top:1px solid #d8bac6;padding-top:20px}
+.process-card b{font:italic 17px Georgia;color:#bd879d}
+.process-card h3{font:22px Georgia;font-weight:normal;margin:12px 0 7px}
+.process-card p{font-size:12px;color:var(--muted)}
+
+/* QUOTE */
+.quote{
+background:#29242a;color:white;
+padding:65px 20px;text-align:center;
+}
+.quote blockquote{
+font:clamp(25px,4vw,39px)/1.3 Georgia;
+max-width:780px;margin:auto;
+}
+.quote span{
+display:block;color:#e4b8ca;
+font-size:10px;letter-spacing:3px;margin-top:20px;
+}
+
+/* COLLABORATION */
+.collab{
+background:#fffaf7;
+}
+.collab-box{
+background:#f8eaf0;padding:55px 30px;
+text-align:center;border:1px solid #ecd7e0;
+}
+.collab-box h2{font:40px Georgia;font-weight:normal;margin:12px 0}
+.collab-box p{max-width:570px;margin:0 auto;color:var(--muted);font-size:14px}
+
+/* CONTACT */
+.contact{background:#f8edf2}
+.contact-grid{
+display:grid;grid-template-columns:1fr 1fr;gap:55px;
+}
+.contact h2{font:43px Georgia;font-weight:normal;margin-bottom:15px}
+.contact p{font-size:14px;color:var(--muted)}
+.contact-details{margin-top:30px;display:grid;gap:17px}
+.contact-item{display:flex;gap:13px;align-items:center;font-size:13px}
+.contact-icon{
+width:38px;height:38px;border-radius:50%;
+background:white;display:grid;place-items:center;
+color:#b27d93;font-size:17px;
+}
+.contact-form{
+background:white;padding:30px;border:1px solid var(--line)
+}
+.contact-form h3{font:25px Georgia;font-weight:normal;margin-bottom:15px}
+.contact-form label{
+display:block;font-size:11px;color:#786c74;margin:14px 0 5px
+}
+.contact-form input,.contact-form textarea{
+width:100%;padding:13px;border:1px solid #e7dbe0;
+background:#fffaf8;outline:none;font-size:13px;
+}
+.contact-form input:focus,.contact-form textarea:focus{
+border-color:#c58da5
+}
+.contact-form textarea{height:115px;resize:vertical}
+.contact-form button{
+width:100%;margin-top:17px;cursor:pointer;
+}
+
+/* FOOTER */
+footer{background:#29242a;color:white;padding:30px 0}
+.footer-row{
+display:flex;justify-content:space-between;
+align-items:center;gap:20px;flex-wrap:wrap;
+}
+.footer-brand{display:flex;align-items:center;gap:12px;font:21px Georgia}
+.footer-brand .brand-logo{width:42px;height:42px}
+.footer-small{font-size:11px;color:#c6b9c0}
+.footer-links{display:flex;gap:18px;font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+.nav-links{gap:13px}
+.nav-links a:not(.nav-button){display:none}
+.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+.hero{padding:50px 0}
+.hero-art{min-height:350px}
+.orbit{width:340px;height:340px}
+.art-circle{width:290px}
+.about-grid{gap:30px}
+.skill-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}
+.process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+.brand{font-size:18px}
+.brand-logo{width:42px;height:42px}
+.hero h1{font-size:53px}
+.hero-art{min-height:315px}
+.art-circle{width:250px}
+.orbit{width:295px;height:295px}
+.stats strong{font-size:25px}
+.stats span{font-size:8px;letter-spacing:1px}
+.skill-grid,.portfolio-grid{grid-template-columns:1fr}
+.demo{height:225px}
+section{padding:62px 0}
+.process-grid{gap:25px}
+.collab-box{padding:40px 20px}
+.footer-row{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGO: INLINE SVG, NO IMAGE FILE NEEDED -->
+<header>
+<div class="container navbar">
+<a href="#home" class="brand">
+<div class="brand-logo">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="96" fill="#fcecf3"/>
+<circle cx="100" cy="100" r="88" fill="none" stroke="#b58b9c" stroke-width="2"/>
+<path d="M42 83 Q30 45 76 30 Q120 8 155 55 Q175 88 153 133" fill="none" stroke="#66525d" stroke-width="4"/>
+<path d="M65 77 Q72 42 105 39 Q135 41 140 78 L132 122 Q110 150 79 126Z" fill="#f5e3df" stroke="#51434b" stroke-width="3"/>
+<path d="M63 79 Q55 37 104 27 Q151 34 144 81 Q130 56 108 54 Q87 60 63 79" fill="#40323b"/>
+<path d="M80 86 Q89 81 96 87 M111 87 Q121 81 130 86" fill="none" stroke="#41343b" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="89" cy="96" rx="5" ry="3" fill="#42343b"/>
+<ellipse cx="119" cy="96" rx="5" ry="3" fill="#42343b"/>
+<path d="M99 105 L95 114 L103 115" fill="none" stroke="#9b777d" stroke-width="2"/>
+<path d="M89 124 Q105 139 122 123" fill="none" stroke="#a66f83" stroke-width="3" stroke-linecap="round"/>
+<path d="M42 100 Q30 110 44 121 M157 99 Q170 112 156 124" fill="none" stroke="#b58b9c" stroke-width="3"/>
+<g fill="#bd8da1">
+<path d="M35 57 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4z"/>
+<path d="M160 47 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+</g>
+<path d="M74 155 Q100 144 126 155" fill="none" stroke="#b58b9c" stroke-width="2"/>
+<text x="100" y="176" text-anchor="middle" font-size="12" fill="#755b67" letter-spacing="3">ARTIST</text>
+</svg>
+</div>
+<span>Happy Artist</span>
+</a>
+
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Creativity</a>
+<a href="#work">Portfolio</a>
+<a href="#contact" class="nav-button">Let's Talk ↗</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">A little corner of creativity</div>
+<h1>Art begins<br>with a <em>feeling.</em></h1>
+<p>
+Welcome to my creative space. I'm Aniska Sharma, an artist who
+loves exploring different mediums, experimenting with colours
+and turning simple ideas into something meaningful.
+</p>
+<div class="actions">
+<a class="btn btn-dark" href="#work">Explore My Work ↗</a>
+<a class="btn btn-light" href="#about">Meet The Artist</a>
+</div>
+<div class="hero-caption">"Every little idea deserves a chance to bloom."</div>
+</div>
+
+<div class="hero-art">
+<div class="orbit"></div>
+<span class="decor d1">✦</span>
+<span class="decor d2">♡</span>
+<span class="decor d3">✧</span>
+<div class="art-circle">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="96" fill="#fcecf3"/>
+<circle cx="100" cy="100" r="86" fill="none" stroke="#bd98a7" stroke-width="2"/>
+<path d="M58 91 Q47 25 104 28 Q157 29 145 94 L138 140 Q103 174 65 139Z" fill="#493a43"/>
+<path d="M69 79 Q66 45 105 42 Q136 44 137 81 L130 132 Q103 158 77 132Z" fill="#f4dfdc" stroke="#58454e" stroke-width="2"/>
+<path d="M66 80 Q59 29 109 31 Q148 34 139 81 Q122 57 104 55 Q85 57 66 80" fill="#40323c"/>
+<path d="M74 92 Q86 85 96 92 M108 92 Q119 85 130 92" fill="none" stroke="#51414a" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="86" cy="99" rx="5" ry="4" fill="#493941"/>
+<ellipse cx="119" cy="99" rx="5" ry="4" fill="#493941"/>
+<path d="M102 104 L98 116 L105 117" fill="none" stroke="#b58b91" stroke-width="2"/>
+<path d="M88 128 Q104 141 121 126" fill="none" stroke="#9d6479" stroke-width="3" stroke-linecap="round"/>
+<path d="M48 174 Q100 145 152 174" fill="#dcbac8"/>
+<path d="M48 174 Q100 145 152 174" fill="none" stroke="#9d7788" stroke-width="2"/>
+<g fill="#c18ba1">
+<path d="M34 49 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4z"/>
+<path d="M159 67 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+<path d="M49 117 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3z"/>
+</g>
+<g stroke="#927587" stroke-width="2" fill="none">
+<path d="M151 113 Q166 95 170 116 Q160 127 151 113"/>
+<path d="M157 109 L164 120"/>
+<path d="M38 140 Q25 132 31 122 Q43 122 38 140"/>
+</g>
+</svg>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+<div class="container stats-grid">
+<div><strong>01</strong><span>Curious Mind</span></div>
+<div><strong>∞</strong><span>Creative Ideas</span></div>
+<div><strong>100%</strong><span>Love For Art</span></div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container about-grid">
+<div class="about-art">
+<svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+<path d="M40 180 Q20 95 60 40 Q100 0 145 48 Q185 100 157 180" fill="#493b45"/>
+<ellipse cx="100" cy="103" rx="57" ry="76" fill="#f5dfdc" stroke="#6a5660" stroke-width="2"/>
+<path d="M43 90 Q34 18 105 20 Q166 22 157 91 Q130 55 101 52 Q71 57 43 90" fill="#493b45"/>
+<path d="M68 103 Q80 96 91 102 M110 102 Q121 96 133 103" stroke="#40323a" stroke-width="3" fill="none"/>
+<circle cx="80" cy="111" r="4" fill="#40323a"/>
+<circle cx="121" cy="111" r="4" fill="#40323a"/>
+<path d="M96 117 L92 130 L100 131" fill="none" stroke="#9d747d" stroke-width="2"/>
+<path d="M82 143 Q101 158 121 142" stroke="#a76d83" fill="none" stroke-width="3"/>
+<path d="M43 211 Q100 168 157 211" fill="#d9b5c4"/>
+<g fill="#b88ba0"><circle cx="25" cy="55" r="5"/><circle cx="174" cy="80" r="5"/><path d="M25 130 l5 10 10 5 -10 5 -5 10 -5 -10 -10 -5 10 -5z"/></g>
+</svg>
+<div class="about-art-note">A mind full of colours ♡</div>
+</div>
+
+<div class="about-copy">
+<div class="eyebrow">A little about me</div>
+<h2>Hello, I'm Aniska.</h2>
+<p>
+I'm a creative person from Kalimpong, India. Art has always been
+a beautiful way for me to express thoughts, feelings and little
+moments that words sometimes cannot explain.
+</p>
+<p>
+I enjoy trying different artistic mediums, discovering new
+techniques and learning something new with every project.
+From detailed illustrations to colourful paintings, every
+creation has its own little story.
+</p>
+<p>
+This website is a small collection of my creative journey,
+ideas and experiments. I'm always happy to connect with
+people who appreciate art and creativity.
+</p>
+<div class="signature">With love, Aniska ♡</div>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">What I love doing</div>
+<h2>My Creative World</h2>
+<div class="heading-line"></div>
+<p>Different mediums, different ideas, one common love for creating.</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+<div class="skill-icon">✎</div>
+<h3>Drawing & Sketching</h3>
+<p>Exploring expressions, characters, outlines and details through pencil and pen sketches.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon">◉</div>
+<h3>Painting</h3>
+<p>Playing with colours, textures and different painting styles to bring ideas to life.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon">✿</div>
+<h3>Illustration</h3>
+<p>Creating expressive illustrations, playful characters and imaginative compositions.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon">✧</div>
+<h3>Mixed Media</h3>
+<p>Combining creative techniques and experimenting with materials and artistic styles.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon">♡</div>
+<h3>Creative Experiments</h3>
+<p>Trying new things, learning new methods and finding inspiration in everyday life.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon">✉</div>
+<h3>Collaborations</h3>
+<p>Open to creative conversations, interesting ideas and artistic collaborations.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" class="portfolio">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">A glimpse of creativity</div>
+<h2>Selected Creative Works</h2>
+<div class="heading-line"></div>
+<p>A small demo gallery representing different kinds of artwork and creative experiments.</p>
+</div>
+
+<div class="portfolio-grid">
+<div class="project">
+<div class="demo demo-one">
+<div class="portrait-demo"></div>
+</div>
+<div class="project-info">
+<h3>Character Study</h3>
+<p>A demo concept inspired by character illustration and pencil drawing.</p>
+<span class="demo-label">Illustration · Demo</span>
+</div>
+</div>
+
+<div class="project">
+<div class="demo demo-two">
+<div class="art-paper"><span>Nature<br>inspired<small>COLOUR STUDY</small></span></div>
+</div>
+<div class="project-info">
+<h3>Nature Notes</h3>
+<p>A simple creative layout inspired by the beauty of nature.</p>
+<span class="demo-label">Creative Design · Demo</span>
+</div>
+</div>
+
+<div class="project">
+<div class="demo demo-three">
+<div class="canvas-demo"><span>Little<br>Moments ♡</span></div>
+</div>
+<div class="project-info">
+<h3>Canvas Stories</h3>
+<p>An imaginary canvas concept with soft colours and a personal touch.</p>
+<span class="demo-label">Canvas Art · Demo</span>
+</div>
+</div>
+
+<div class="project">
+<div class="demo demo-four">
+<div class="flower">✿</div>
+</div>
+<div class="project-info">
+<h3>Floral Experiments</h3>
+<p>A playful floral concept exploring shapes, patterns and colours.</p>
+<span class="demo-label">Mixed Media · Demo</span>
+</div>
+</div>
+
+<div class="project">
+<div class="demo demo-five">
+<div class="art-paper"><span>Dream<br>in Colour<small>ART JOURNAL</small></span></div>
+</div>
+<div class="project-info">
+<h3>Art Journal</h3>
+<p>A sample journal-style design for collecting creative thoughts.</p>
+<span class="demo-label">Art Journal · Demo</span>
+</div>
+</div>
+
+<div class="project">
+<div class="demo demo-six">
+<div class="canvas-demo"><span>Be<br>Creative ✧</span></div>
+</div>
+<div class="project-info">
+<h3>Colour Play</h3>
+<p>A demo composition celebrating experimentation and imagination.</p>
+<span class="demo-label">Colour Study · Demo</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">From idea to artwork</div>
+<h2>How Creativity Happens</h2>
+<div class="heading-line"></div>
+<p>Every creative project begins with a thought and grows through experimentation.</p>
+</div>
+
+<div class="process-grid">
+<div class="process-card">
+<b>01 / Inspiration</b>
+<h3>The Idea</h3>
+<p>Finding inspiration in little things, places, people and everyday experiences.</p>
+</div>
+<div class="process-card">
+<b>02 / Exploration</b>
+<h3>Experiment</h3>
+<p>Trying different concepts, colours and artistic approaches.</p>
+</div>
+<div class="process-card">
+<b>03 / Creation</b>
+<h3>Make It Real</h3>
+<p>Giving the idea its own form through patience and creative effort.</p>
+</div>
+<div class="process-card">
+<b>04 / Expression</b>
+<h3>Share It</h3>
+<p>Sharing the finished creation and learning from every new experience.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote">
+<blockquote>
+"Art is not about making something perfect.
+It's about making something that feels like you."
+</blockquote>
+<span>A LITTLE REMINDER FROM HAPPY ARTIST</span>
+</div>
+
+<!-- COLLAB -->
+<section class="collab">
+<div class="container">
+<div class="collab-box">
+<div class="eyebrow">Have an idea in mind?</div>
+<h2>Let's Create Something Together.</h2>
+<p>
+I love meeting creative people, exchanging ideas and exploring
+interesting projects. If you have an idea, a collaboration
+proposal or simply want to talk about art, feel free to reach out.
+</p>
+<div class="actions" style="justify-content:center">
+<a href="#contact" class="btn btn-dark">Get In Touch ↗</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container contact-grid">
+<div>
+<div class="eyebrow">Say hello</div>
+<h2>Let's Talk<br>Creativity.</h2>
+<p>
+Have a question, a creative idea or a collaboration in mind?
+I'd love to hear from you. Drop a message and let's start a conversation.
+</p>
+
+<div class="contact-details">
+<div class="contact-item">
+<div class="contact-icon">✉</div>
+<div>
+<strong>Email</strong><br>
+<a href="mailto:happyartist03@gmail.com">happyartist03@gmail.com</a>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">◎</div>
+<div>
+<strong>Instagram</strong><br>
+<a href="https://www.instagram.com/happy_artist7/" target="_blank"> @happy_artist7</a>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">⌖</div>
+<div>
+<strong>Location</strong><br>
+Kalimpong, India
+</div>
+</div>
+</div>
+</div>
+
+<form class="contact-form" onsubmit="sendMessage(event)">
+<h3>Send a Little Note ♡</h3>
+
+<label for="name">Your Name</label>
+<input id="name" type="text" placeholder="Enter your name" required>
+
+<label for="email">Your Email</label>
+<input id="email" type="email" placeholder="Enter your email" required>
+
+<label for="message">Your Message</label>
+<textarea id="message" placeholder="Tell me what's on your mind..." required></textarea>
+
+<button class="btn btn-dark" type="submit">Send Message ↗</button>
+<p style="font-size:10px;margin-top:12px">
+Your email application will open with the message prepared.
+</p>
+</form>
+</div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+<div class="container footer-row">
+<div class="footer-brand">
+<div class="brand-logo">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="96" fill="#fcecf3"/>
+<circle cx="100" cy="100" r="88" fill="none" stroke="#b58b9c" stroke-width="2"/>
+<path d="M65 77 Q72 30 110 35 Q150 40 140 85 L130 130 Q100 160 72 130Z" fill="#f5e3df" stroke="#51434b" stroke-width="3"/>
+<path d="M63 79 Q55 37 104 27 Q151 34 144 81 Q130 56 108 54 Q87 60 63 79" fill="#40323b"/>
+<path d="M80 90 Q90 83 98 90 M111 90 Q121 83 130 90" fill="none" stroke="#41343b" stroke-width="3"/>
+<circle cx="89" cy="99" r="4" fill="#42343b"/><circle cx="119" cy="99" r="4" fill="#42343b"/>
+<path d="M88 125 Q105 140 122 124" fill="none" stroke="#a66f83" stroke-width="3"/>
+<text x="100" y="177" text-anchor="middle" font-size="12" fill="#755b67" letter-spacing="3">ARTIST</text>
+</svg>
+</div>
+<span>Happy Artist</span>
+</div>
+<div class="footer-small">Made with curiosity & care · Kalimpong, India</div>
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#work">Portfolio</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</footer>
+
+<script>
+function sendMessage(event){
+event.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const message=document.getElementById("message").value.trim();
+
+const subject=encodeURIComponent("Art enquiry from "+name);
+const body=encodeURIComponent(
+"Hello Aniska,\n\n"+message+
+"\n\nFrom: "+name+
+"\nEmail: "+email
+);
+
+window.location.href=
+"mailto:happyartist03@gmail.com?subject="+subject+"&body="+body;
+}
+</script>
+
+</body>
+</html>
